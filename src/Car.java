@@ -7,12 +7,10 @@ public class Car extends Vehicle {
         setNumberOfDoors(numberOfDoors);
     }
 
-    // Getter
     public int getNumberOfDoors() {
         return numberOfDoors;
     }
 
-    // Setter with validation
     public void setNumberOfDoors(int numberOfDoors) {
         if (numberOfDoors <= 0) {
             throw new IllegalArgumentException("Number of doors must be positive");
@@ -32,7 +30,7 @@ public class Car extends Vehicle {
 
     @Override
     public double calculateInsuranceFee() {
-        int age = getAge(2025);
+        int age = getAge(2026);
         return basePrice * 0.05 + age * 100;
     }
 

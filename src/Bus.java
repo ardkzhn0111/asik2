@@ -32,7 +32,7 @@ public class Bus extends Vehicle {
 
     @Override
     public double calculateInsuranceFee() {
-        int age = getAge(2025);
+        int age = getAge(2026);
         return basePrice * 0.08 + passengerCapacity * 50 + age * 150;
     }
 

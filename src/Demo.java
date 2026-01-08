@@ -1,8 +1,8 @@
 public class Demo {
     public static void main(String[] args) {
 
-        Servicable s1 = new Car("Toyota", 2020, 15000, 4);
-        Servicable s2 = new Bus("Mercedes", 2018, 50000, 40);
+        Servicable s1 = new Car("lamboooo", 2020, 15000, 2);
+        Servicable s2 = new Bus("jaguarrrrrrrr", 1990, 5000, 40);
 
         s1.performService(); // Car version
         s2.performService(); // Bus version

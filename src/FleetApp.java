@@ -11,9 +11,15 @@ public class FleetApp {
         boolean running = true;
 
         while (running) {
-            printMenu();
+            System.out.println("\nFleet Management System");
+            System.out.println("1. Print all vehicles");
+            System.out.println("2. Add new car");
+            System.out.println("3. Add new bus");
+            System.out.println("4. Show total yearly insurance fees");
+            System.out.println("5. Show vehicles older than N years");
+            System.out.println("6. Perform service for all vehicles");
+            System.out.println("7. Quit");
             int choice = readInt("Choose option: ");
-
             switch (choice) {
                 case 1:
                     printAllVehicles();
@@ -41,18 +47,6 @@ public class FleetApp {
                     System.out.println("Invalid option. Try again.");
             }
         }
-    }
-
-    // ---------- MENU ----------
-    private void printMenu() {
-        System.out.println("\nFleet Management System");
-        System.out.println("1. Print all vehicles");
-        System.out.println("2. Add new car");
-        System.out.println("3. Add new bus");
-        System.out.println("4. Show total yearly insurance fees");
-        System.out.println("5. Show vehicles older than N years");
-        System.out.println("6. Perform service for all vehicles");
-        System.out.println("7. Quit");
     }
 
     private void printAllVehicles() {
@@ -130,7 +124,7 @@ public class FleetApp {
         }
 
         for (Vehicle v : vehicles) {
-            v.performService(); // POLYMORPHISM
+            v.performService();
         }
     }
 
@@ -142,7 +136,7 @@ public class FleetApp {
             System.out.print("Enter a valid number: ");
         }
         int value = scanner.nextInt();
-        scanner.nextLine(); // clear buffer
+        scanner.nextLine();
         return value;
     }
 
@@ -153,7 +147,7 @@ public class FleetApp {
             System.out.print("Enter a valid number: ");
         }
         double value = scanner.nextDouble();
-        scanner.nextLine(); // clear buffer
+        scanner.nextLine();
         return value;
     }
 
