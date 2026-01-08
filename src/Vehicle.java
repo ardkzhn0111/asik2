@@ -1,58 +1,60 @@
-public abstract class Vehicle implements Servicable {
-
+public abstract class Vehicle implements Servicable{
     protected int id;
-    protected static int idGen = 1;
+    protected static int id_gen = 1;
     protected String model;
     protected int year;
     protected double basePrice;
 
     protected Vehicle(String model, int year, double basePrice) {
-        this.id = idGen++;
+        this.id = id_gen++;
         setModel(model);
         setYear(year);
         setBasePrice(basePrice);
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public String getModel() {
-        return model;
+    public void setYear(int year) {
+        if(year < 1886 || year > 2026) {
+            throw new IllegalArgumentException("Incorrect year");
+        }
+        this.year = year;
     }
 
     public int getYear() {
         return year;
     }
 
-    public double getBasePrice() {
-        return basePrice;
-    }
-
     public void setModel(String model) {
-        if (model == null || model.trim().isEmpty()) {
-            throw new IllegalArgumentException("Model cannot be null or empty");
+        if(model == null || model.trim().isEmpty()) {
+            throw new IllegalArgumentException("Cannot be null or empty");
         }
         this.model = model;
     }
 
-    public void setYear(int year) {
-        if (year < 1900 || year > 2100) {
-            throw new IllegalArgumentException("Year must be between 1900 and 2100");
-        }
-        this.year = year;
+    public String getModel() {
+        return model;
     }
 
     public void setBasePrice(double basePrice) {
-        if (basePrice <= 0) {
-            throw new IllegalArgumentException("Base price must be greater than 0");
+        if(basePrice < 0) {
+            throw new IllegalArgumentException("Must be greater than 0");
         }
         this.basePrice = basePrice;
     }
 
+    public double getBasePrice() {
+        return basePrice;
+    }
 
-    public int getAge(int currentYear) {
-        return currentYear - year;
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getAge(int CurrYear) {
+        return CurrYear - year;
     }
 
     public abstract double calculateInsuranceFee();

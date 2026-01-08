@@ -64,43 +64,53 @@ public class FleetApp {
         System.out.print("Model: ");
         String model = scanner.nextLine();
 
-        int year = readInt("Year: ");
-        double basePrice = readDouble("Base price: ");
-        int doors = readInt("Number of doors: ");
+        System.out.print("Year: ");
+        int year = scanner.nextInt();
 
-        Vehicle car = new Car(model, year, basePrice, doors);
-        vehicles.add(car);
+        System.out.print("Base price: ");
+        double basePrice = scanner.nextDouble();
 
-        System.out.println("Car added successfully.");
+        System.out.print("Number of doors: ");
+        int doors = scanner.nextInt();
+        scanner.nextLine();
+
+        vehicles.add(new Car(model, year, basePrice, doors));
     }
+
 
     private void addNewBus() {
         System.out.print("Model: ");
         String model = scanner.nextLine();
 
-        int year = readInt("Year: ");
-        double basePrice = readDouble("Base price: ");
-        int capacity = readInt("Passenger capacity: ");
+        System.out.print("Year: ");
+        int year = scanner.nextInt();
 
-        Vehicle bus = new Bus(model, year, basePrice, capacity);
-        vehicles.add(bus);
+        System.out.print("Base price: ");
+        double basePrice = scanner.nextDouble();
 
-        System.out.println("Bus added successfully.");
+        System.out.print("Passenger capacity: ");
+        int capacity = scanner.nextInt();
+        scanner.nextLine();
+
+        vehicles.add(new Bus(model, year, basePrice, capacity));
     }
+
 
     private void showTotalInsuranceFees() {
         double total = 0;
-
         for (Vehicle v : vehicles) {
             total += v.calculateInsuranceFee();
         }
-
-        System.out.println("Total yearly insurance fees: " + total);
+        System.out.println(total);
     }
 
     private void showVehiclesOlderThanNYears() {
-        int currentYear = readInt("Current year: ");
-        int n = readInt("Older than N years: ");
+        System.out.print("Current year: ");
+        int currentYear = scanner.nextInt();
+
+        System.out.print("Older than N years: ");
+        int n = scanner.nextInt();
+        scanner.nextLine();
 
         boolean found = false;
 
@@ -112,7 +122,7 @@ public class FleetApp {
         }
 
         if (!found) {
-            System.out.println("No vehicles older than " + n + " years.");
+            System.out.println("No vehicles found");
         }
     }
 
@@ -127,30 +137,6 @@ public class FleetApp {
             v.performService();
         }
     }
-
-
-    private int readInt(String message) {
-        System.out.print(message);
-        while (!scanner.hasNextInt()) {
-            scanner.nextLine();
-            System.out.print("Enter a valid number: ");
-        }
-        int value = scanner.nextInt();
-        scanner.nextLine();
-        return value;
-    }
-
-    private double readDouble(String message) {
-        System.out.print(message);
-        while (!scanner.hasNextDouble()) {
-            scanner.nextLine();
-            System.out.print("Enter a valid number: ");
-        }
-        double value = scanner.nextDouble();
-        scanner.nextLine();
-        return value;
-    }
-
     public static void main(String[] args) {
         new FleetApp().run();
     }

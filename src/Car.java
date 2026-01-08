@@ -1,48 +1,35 @@
 public class Car extends Vehicle {
-
     private int numberOfDoors;
 
-    public Car(String model, int year, double basePrice, int numberOfDoors) {
+    protected Car(String model, int year, double basePrice, int numberOfDoors) {
         super(model, year, basePrice);
-        setNumberOfDoors(numberOfDoors);
-    }
-
-    public int getNumberOfDoors() {
-        return numberOfDoors;
-    }
-
-    public void setNumberOfDoors(int numberOfDoors) {
-        if (numberOfDoors <= 0) {
-            throw new IllegalArgumentException("Number of doors must be positive");
-        }
         this.numberOfDoors = numberOfDoors;
     }
 
     @Override
+    public double calculateInsuranceFee() {
+        int Age = getAge(2026);
+        return basePrice / 10 + Age * 200;
+    }
+
+    @Override
     public void performService() {
-        System.out.println("Car service: oil change, brake check, diagnostics.");
+        System.out.println("Clean, clean, engiiineee");
     }
 
     @Override
     public int getServiceIntervalKm() {
-        return 15000;
-    }
-
-    @Override
-    public double calculateInsuranceFee() {
-        int age = getAge(2026);
-        return basePrice * 0.05 + age * 100;
+        return 1234;
     }
 
     @Override
     public String toString() {
-        return "Car{" +
+        return "Vehicle{" +
                 "id=" + id +
                 ", model='" + model + '\'' +
                 ", year=" + year +
                 ", basePrice=" + basePrice +
-                ", numberOfDoors=" + numberOfDoors +
+                ", numDoors=" + numberOfDoors +
                 '}';
     }
 }
-

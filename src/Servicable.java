@@ -1,6 +1,4 @@
 public interface Servicable {
-
-    void performService();
-
-    int getServiceIntervalKm();
+    public void performService();
+    public int getServiceIntervalKm();
 }
