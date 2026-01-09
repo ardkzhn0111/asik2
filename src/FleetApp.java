@@ -19,27 +19,27 @@ public class FleetApp {
             System.out.println("5. Show vehicles older than N years");
             System.out.println("6. Perform service for all vehicles");
             System.out.println("7. Quit");
-            int choice = readInt("Choose option: ");
+            String choice = scanner.nextLine();
             switch (choice) {
-                case 1:
+                case "1":
                     printAllVehicles();
                     break;
-                case 2:
+                case "2":
                     addNewCar();
                     break;
-                case 3:
+                case "3":
                     addNewBus();
                     break;
-                case 4:
+                case "4":
                     showTotalInsuranceFees();
                     break;
-                case 5:
+                case "5":
                     showVehiclesOlderThanNYears();
                     break;
-                case 6:
+                case "6":
                     performServiceForAll();
                     break;
-                case 7:
+                case "7":
                     running = false;
                     System.out.println("Exiting Fleet Management System.");
                     break;
