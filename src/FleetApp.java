@@ -11,7 +11,7 @@ public class FleetApp {
         boolean running = true;
 
         while (running) {
-            System.out.println("\nFleet Management System");
+            System.out.println("Fleet Management System");
             System.out.println("1. Print all vehicles");
             System.out.println("2. Add new car");
             System.out.println("3. Add new bus");
