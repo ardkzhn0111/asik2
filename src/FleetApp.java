@@ -41,10 +41,7 @@ public class FleetApp {
                     break;
                 case "7":
                     running = false;
-                    System.out.println("Exiting Fleet Management System.");
                     break;
-                default:
-                    System.out.println("Invalid option. Try again.");
             }
         }
     }
